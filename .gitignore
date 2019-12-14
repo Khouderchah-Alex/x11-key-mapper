@@ -1,0 +1,24 @@
+# Emacs/vim backup files
+\#*\#
+*~
+*.elc
+.\#*
+.projectile
+[._]*.sw[a-p]
+
+# VS temporary files
+*.suo
+*.user
+*userosscache
+*.sln.docstates
+.vs/
+
+# Compiled python files
+__pycache/
+*.egg-info/
+*.py[cod]
+*$py.class
+
+# OS files
+.DS_Store
+.DS_Store?
