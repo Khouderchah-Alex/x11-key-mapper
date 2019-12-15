@@ -14,5 +14,9 @@ to fake new input events.
 
 ## How to use it?
 
-`sudo ./key_mapper.py` is a good starting point, although configuring this to be
-run on startup/login could be a better long-term solution.
+`sudo ./install.sh` should be run first to ensure that all necessary
+dependencies are installed.
+
+Following that, `sudo ./key_mapper.py` is a good starting point, although
+configuring this to be run on startup/login could be a better long-term
+solution.
