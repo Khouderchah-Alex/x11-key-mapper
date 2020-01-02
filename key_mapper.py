@@ -20,6 +20,7 @@ TITLE_MAP = [re.compile('/home/.*[.]pdf'), [key('Control_L+u'), key('Down'), key
              re.compile('.* \[Emacs\]'), [key('Alt_L+v'), key('Control_L+s'), key('Control_L+v')],
              re.compile('.*- Opera'), [keys('gT'), key('Control_L+t'), keys('gt')],
              re.compile('.*- Google Chrome'), [keys('u'), key('Control_L+t'), keys('d')],
+             re.compile('grep .*'), [key('u'), key('n'), key('d')],
 ]
 
 ORIGINAL_KEYS = ['2', '57', '4']
