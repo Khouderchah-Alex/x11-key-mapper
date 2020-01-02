@@ -21,6 +21,10 @@ TITLE_MAP = [re.compile('/home/.*[.]pdf'), [key('Control_L+u'), key('Down'), key
              re.compile('.*- Opera'), [keys('gT'), key('Control_L+t'), keys('gt')],
              re.compile('.*- Google Chrome'), [keys('u'), key('Control_L+t'), keys('d')],
              re.compile('grep .*'), [key('u'), key('n'), key('d')],
+             re.compile('git grep .*'), [key('u'), key('n'), key('d')],
+             re.compile('git diff'), [key('u'), key('n'), key('d')],
+             re.compile('git log'), [key('u'), key('n'), key('d')],
+             re.compile('git show'), [key('u'), key('n'), key('d')],
 ]
 
 ORIGINAL_KEYS = ['2', '57', '4']
