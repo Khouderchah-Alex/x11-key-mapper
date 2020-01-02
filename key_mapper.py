@@ -25,6 +25,7 @@ TITLE_MAP = [re.compile('/home/.*[.]pdf'), [key('Control_L+u'), key('Down'), key
              re.compile('git diff'), [key('u'), key('n'), key('d')],
              re.compile('git log'), [key('u'), key('n'), key('d')],
              re.compile('git show'), [key('u'), key('n'), key('d')],
+             re.compile('ranger'), [key('Control_L+u'), key('space'), key('Control_L+d')],
 ]
 
 ORIGINAL_KEYS = ['2', '57', '4']
