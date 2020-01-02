@@ -15,7 +15,7 @@ git_install() {
 
     git clone "$1" dependency
     cd dependency
-    make && make install
+    make && sudo make install
     cd ..
     rm -rf dependency
     return 0
