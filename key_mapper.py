@@ -12,16 +12,32 @@ import mappings
 
 DEVICE_PATH = '/dev/input/by-id/usb-Kinesis_Savant_Elite2_Foot_Pedal_271828182846-if01-event-kbd'
 CONFIG_PATH = '/etc/actkbd.conf'
+PIDFILE_PATH = '/var/run/key_mapper.pid'
+
+EXIT_SIGNALS = [
+    signal.SIGINT,
+    signal.SIGQUIT,
+    signal.SIGILL,
+    signal.SIGTRAP,
+    signal.SIGABRT,
+    signal.SIGTERM,
+]
 
 current_mapping = None
 current_mapping_process = None
 
 
 def receive_signal(signum, frame):
-    if signum != signal.SIGHUP:
-        return
-    print('Reloading configuration')
-    reload(mappings)
+    if signum == signal.SIGHUP:
+        print('Reloading configuration')
+        reload(mappings)
+    elif signum in EXIT_SIGNALS:
+        cleanup()
+
+
+def cleanup():
+    if os.path.exists(PIDFILE_PATH):
+        os.remove(PIDFILE_PATH)
 
 
 def handle_title_change(title):
@@ -65,7 +81,22 @@ def remap_keys(new_mapping):
 
 if __name__ == '__main__':
     signal.signal(signal.SIGHUP, receive_signal)
+    for signum in EXIT_SIGNALS:
+        signal.signal(signum, receive_signal)
 
-    with os.popen('xtitle -s') as xtitle:
-        for title in xtitle:
-            handle_title_change(title)
+    # Set up pidfile.
+    pid = os.getpid()
+    if os.path.exists(PIDFILE_PATH):
+        print('An instance already appears to be running.')
+        print('If this is not the case, remove the file: %s' % PIDFILE_PATH)
+        exit(1)
+
+    try:
+        with open(PIDFILE_PATH, 'w') as f:
+            f.write('%d' % pid)
+
+        with os.popen('xtitle -s') as xtitle:
+            for title in xtitle:
+                handle_title_change(title)
+    finally:
+        cleanup()
