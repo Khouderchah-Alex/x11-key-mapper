@@ -2,8 +2,10 @@
 
 import os
 import re
+import signal
 import subprocess
 import sys
+from importlib import reload
 
 import mappings
 
@@ -13,6 +15,13 @@ CONFIG_PATH = '/etc/actkbd.conf'
 
 current_mapping = None
 current_mapping_process = None
+
+
+def receive_signal(signum, frame):
+    if signum != signal.SIGHUP:
+        return
+    print('Reloading configuration')
+    reload(mappings)
 
 
 def handle_title_change(title):
@@ -55,6 +64,8 @@ def remap_keys(new_mapping):
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGHUP, receive_signal)
+
     with os.popen('xtitle -s') as xtitle:
         for title in xtitle:
             handle_title_change(title)
