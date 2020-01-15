@@ -19,15 +19,15 @@ TITLE_MAP = [
 
     re.compile('.*- Gmail - Opera'),
         [' && '.join([key('Escape'), keys('ik'), key('Escape')]),
-         ' && '.join([key('Escape'), keys('i_'), key('Escape')]),
+         ' && '.join([key('Escape'), key('Page_Down')]),
          ' && '.join([key('Escape'), keys('ij'), key('Escape')])],
     re.compile('.*- Gmail - Google Chrome'),
         [' && '.join([key('Escape'), keys('ik'), key('Escape')]),
-         ' && '.join([key('Escape'), keys('i_'), key('Escape')]),
+         ' && '.join([key('Escape'), key('Page_Down')]),
          ' && '.join([key('Escape'), keys('ij'), key('Escape')])],
     re.compile('.*- Google.com Mail - Google Chrome'),
         [' && '.join([key('Escape'), keys('ik'), key('Escape')]),
-         ' && '.join([key('Escape'), keys('i_'), key('Escape')]),
+         ' && '.join([key('Escape'), key('Page_Down')]),
          ' && '.join([key('Escape'), keys('ij'), key('Escape')])],
 
     re.compile('.*- Opera'), [keys('u'), key('Down'), keys('d')],
