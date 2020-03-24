@@ -9,7 +9,7 @@ def mouse(click):
     return 'xdotool click %s' % click
 
 ORIGINAL_KEYS = ['2', '57', '4']
-DEFAULT_MAP = [key('a'), key('b'), key('c')]
+DEFAULT_MAP = [key('u'), key('n'), key('d')]
 
 TITLE_MAP = [
     re.compile('/home/.*[.]pdf'), [key('Control_L+u'), key('Down'), key('Control_L+d')],
