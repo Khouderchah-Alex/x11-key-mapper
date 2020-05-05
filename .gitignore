@@ -22,3 +22,6 @@ __pycache/
 # OS files
 .DS_Store
 .DS_Store?
+
+# User configuration
+config/*

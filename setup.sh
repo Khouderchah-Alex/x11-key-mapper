@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# The script can be used to install the dependencies for key_mapper.py.
+# This script can be used to set up use of key_mapper.py.
 
 if [[ $EUID > 0 ]]; then
     echo "Please run as root. Exiting..."
@@ -13,11 +13,11 @@ git_install() {
         exit 2
     fi
 
-    git clone "$1" dependency
-    cd dependency
+    git clone "$1" ___dependency
+    cd ___dependency
     make && sudo make install
     cd ..
-    rm -rf dependency
+    rm -rf ___dependency
     return 0
 }
 
@@ -34,6 +34,9 @@ exists() {
     fi
     return 1
 }
+
+
+pushd $(dirname $(realpath $0)) > /dev/null
 
 exists xtitle
 if [[ $? -ne 0 ]]; then
@@ -58,3 +61,7 @@ echo ""
 echo ""
 echo "Dependency installation success!"
 echo ""
+
+./update.sh
+
+popd > /dev/null
