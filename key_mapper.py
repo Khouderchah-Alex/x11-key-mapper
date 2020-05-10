@@ -99,11 +99,13 @@ class KeyMapper:
             if not os.path.exists(v.config.DEVICE_PATH):
                 continue
 
+            found = False
             for i in range(len(v.config.TITLE_MAP)):
                 if v.config.TITLE_MAP[i][0].match(title):
                     self._remap_keys(k, v.config.TITLE_MAP[i][1])
-                    continue
-            if v.current_mapping != v.config.DEFAULT_MAP:
+                    found = True
+                    break
+            if not found and v.current_mapping != v.config.DEFAULT_MAP:
                 self._remap_keys(k, v.config.DEFAULT_MAP)
 
 
