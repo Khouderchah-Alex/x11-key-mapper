@@ -8,8 +8,8 @@ if [ ! -d config ]; then
     chown $(logname) config
 fi
 
-# Copy default mappings if no mappings exist.
-if [ ! -f config/mappings.py ]; then
+# Copy default mapping if no mappings exist.
+if [ $(ls -1 config/*.py 2>/dev/null | wc -l) == 0 ]; then
     cp default_mappings.py \
        config/mappings.py
     chown $(logname) config/mappings.py

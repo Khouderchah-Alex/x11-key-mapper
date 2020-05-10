@@ -19,3 +19,8 @@ to fake new input events.
 Following that, `sudo ./key_mapper.py` is a good starting point, although
 configuring this to be run on startup/login could be a better long-term
 solution.
+
+Note that any config/*.py file will be interpreted as a configuration
+file. As long as all of the config files have a different DEVICE_PATH,
+key_mapper will use all of the configs, allowing for multiple devices
+to have their keys remapped.
