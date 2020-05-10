@@ -49,10 +49,4 @@ TITLE_MAP = [
 
     (re.compile('.*- Opera'), [keys('u'), key('Down'), keys('d')]),
     (re.compile('.*- Google Chrome'), [keys('u'), key('Down'), keys('d')]),
-
-    (re.compile('grep .*'), [key('u'), key('n'), key('d')]),
-    (re.compile('git grep .*'), [key('u'), key('n'), key('d')]),
-    (re.compile('git diff'), [key('u'), key('n'), key('d')]),
-    (re.compile('git log'), [key('u'), key('n'), key('d')]),
-    (re.compile('git show'), [key('u'), key('n'), key('d')]),
 ]
