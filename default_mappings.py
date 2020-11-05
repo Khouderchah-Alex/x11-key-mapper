@@ -29,7 +29,11 @@ DEFAULT_MAP = [key('u'), key('n'), key('d')]
 
 # List of pairs mapping regex expression of window title to list of new commands.
 TITLE_MAP = [
+    # Zathura mappings.
+    (re.compile('/home/.*[.]djvu'), [key('Control_L+u'), key('Down'), key('Control_L+d')]),
     (re.compile('/home/.*[.]pdf'), [key('Control_L+u'), key('Down'), key('Control_L+d')]),
+    (re.compile('/home/.*[.]ps'), [key('Control_L+u'), key('Down'), key('Control_L+d')]),
+
     (re.compile('.*- Anki'), []),
     (re.compile('.* \[Emacs\]'), [key('Alt_L+v'), key('Control_L+s'), key('Control_L+v')]),
     (re.compile('ranger'), [key('Control_L+u'), key('space'), key('Control_L+d')]),
