@@ -38,19 +38,17 @@ TITLE_MAP = [
     (re.compile('.* \[Emacs\]'), [key('Alt_L+v'), key('Control_L+s'), key('Control_L+v')]),
     (re.compile('ranger'), [key('Control_L+u'), key('space'), key('Control_L+d')]),
 
+    # Gmail mappings.
     (re.compile('.*- Gmail - Opera'),
         [' && '.join([key('Escape'), keys('ik'), key('Escape')]),
          ' && '.join([key('Escape'), key('Page_Down')]),
          ' && '.join([key('Escape'), keys('ij'), key('Escape')])]),
-    (re.compile('.*- Gmail - Google Chrome'),
-        [' && '.join([key('Escape'), keys('ik'), key('Escape')]),
-         ' && '.join([key('Escape'), key('Page_Down')]),
-         ' && '.join([key('Escape'), keys('ij'), key('Escape')])]),
-    (re.compile('.*- Google.com Mail - Google Chrome'),
+    (re.compile('.*- Gmail - Chromium'),
         [' && '.join([key('Escape'), keys('ik'), key('Escape')]),
          ' && '.join([key('Escape'), key('Page_Down')]),
          ' && '.join([key('Escape'), keys('ij'), key('Escape')])]),
 
+    # Browser mappings.
     (re.compile('.*- Opera'), [keys('u'), key('Down'), keys('d')]),
-    (re.compile('.*- Google Chrome'), [keys('u'), key('Down'), keys('d')]),
+    (re.compile('.*- Chromium'), [keys('u'), key('Down'), keys('d')]),
 ]
